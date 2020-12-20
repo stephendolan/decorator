@@ -65,4 +65,4 @@ In the above example, `Decorator` adds the following to the `TimeDecorator` clas
 
 ## Inspiration
 
-- The [Lucky::Assignable Module](https://github.com/luckyframework/lucky/blob/master/src/lucky/assignable.cr) The `decorates` syntax and code mimics the implementation created by the [Lucky](https://luckyframework.org) team.
+- The `decorates` syntax and code mimics the [Lucky::Assignable Module](https://github.com/luckyframework/lucky/blob/master/src/lucky/assignable.cr) `needs` implementation created by the [Lucky](https://luckyframework.org) team.
