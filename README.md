@@ -8,15 +8,15 @@ A simple [Crystal](https://crystal-lang.org) shard for decorating objects.
 
 ## Installation
 
-1. Add the dependency to your `shard.yml`:
+Add the dependency to your `shard.yml`:
 
-   ```yaml
-   dependencies:
-     decorator:
-       github: stephendolan/decorator
-   ```
+```yaml
+dependencies:
+  decorator:
+    github: stephendolan/decorator
+```
 
-2. Run `shards install`
+Run `shards install`
 
 ## Usage
 
