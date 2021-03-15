@@ -1,6 +1,6 @@
 name: decorator
 description: A simple object decoration library for Crystal apps
-version: 0.8.0
+version: 0.2.0
 
 authors:
   - Stephen Dolan <stephen@luckycasts.com>

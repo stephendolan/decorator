@@ -1,3 +1,3 @@
 module Decorator
-  VERSION = "0.8.0"
+  VERSION = "0.2.0"
 end
