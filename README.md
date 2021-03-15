@@ -18,6 +18,14 @@ dependencies:
 
 Run `shards install`
 
+## 🎬 Screencast
+
+<div style="width:50%">
+  <a href="https://luckycasts.com/videos/decorator-shard"><img src="https://i.imgur.com/1gs4z0c.jpg" title="Decorating Lucky Apps with the Decorator Shard" /></a>
+</div>
+
+[Watch Screencast](https://luckycasts.com/videos/decorator-shard)
+
 ## Usage
 
 Require the shard:
