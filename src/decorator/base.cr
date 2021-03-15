@@ -10,7 +10,7 @@ class Decorator::Base
   #
   # Given a decorator class like this:
   #
-  # ```crystal
+  # ```
   # class TimeDecorator < Decorator::Base
   #   decorates time : Time
   # end
