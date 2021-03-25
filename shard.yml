@@ -1,11 +1,11 @@
 name: decorator
 description: A simple object decoration library for Crystal apps
-version: 0.2.0
+version: 0.3.0
 
 authors:
   - Stephen Dolan <stephen@luckycasts.com>
 
-crystal: 0.36.1
+crystal: ">= 0.35.0, < 2.0.0"
 
 license: MIT
 
