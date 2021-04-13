@@ -20,11 +20,9 @@ Run `shards install`
 
 ## 🎬 Screencast
 
-<div style="width:50%">
-  <a href="https://luckycasts.com/videos/decorator-shard"><img src="https://i.imgur.com/1gs4z0c.jpg" title="Decorating Lucky Apps with the Decorator Shard" /></a>
-</div>
+<a href="https://luckycasts.com/videos/decorator-shard"><img src="https://i.imgur.com/1gs4z0c.jpg" title="Decorating Lucky Apps with the Decorator Shard" width="500" /></a>
 
-[Watch Screencast](https://luckycasts.com/videos/decorator-shard)
+[Watch a LuckyCast on the Decorator shard](https://luckycasts.com/videos/decorator-shard)
 
 ## Usage
 
@@ -34,10 +32,10 @@ Require the shard:
 require "decorator"
 ```
 
-Create a decorator that inherits from Decorator::Base, and tell the decorator what it `decorates` to decorate:
+Create a decorator `Struct` that inherits from `Decorator::Base`, and define what it `decorates`:
 
 ```crystal
-class TimeDecorator < Decorator::Base
+struct TimeDecorator < Decorator::Base
   decorates time : Time
 
   # Return a pretty version of a date and weekday in the format:
@@ -54,7 +52,7 @@ class TimeDecorator < Decorator::Base
 end
 ```
 
-In the above example, `Decorator` adds the following to the `TimeDecorator` class for you:
+In the above example, `Decorator` adds the following to the `TimeDecorator` struct for you:
 
 - An `initialize(@time : Time)` method
 - A `getter` (or `getter?` for `Bool` types) for `@time`

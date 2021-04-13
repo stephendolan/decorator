@@ -1,4 +1,4 @@
-class Decorator::Base
+abstract struct Decorator::Base
   # Keep track of how many `decorates` statements have been provided so that we can limit to 1.
   macro inherited
     DECORATOR_ASSIGNS = [] of Nil
@@ -8,15 +8,15 @@ class Decorator::Base
   #
   # Currently, you can only supply **one** `decorates` statement per decorator that inherits from `Decorator::Base`.
   #
-  # Given a decorator class like this:
+  # Given a decorator struct like this:
   #
   # ```
-  # class TimeDecorator < Decorator::Base
+  # struct TimeDecorator < Decorator::Base
   #   decorates time : Time
   # end
   # ```
   #
-  # The following items are made available to the `TimeDecorator` class:
+  # The following items are made available to the `TimeDecorator` struct:
   #
   # - An `initialize(@time : Time)` method
   # - A `getter` (or `getter?` for `Bool` types) for `@time`
