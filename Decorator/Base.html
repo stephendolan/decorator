@@ -4,16 +4,16 @@
   <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="generator" content="Crystal Docs 0.36.1">
-<meta name="crystal_docs.project_version" content="main">
-<meta name="crystal_docs.project_name" content="decorator">
+<meta name="crystal_docs.project_version" content="v1.0.0">
+<meta name="crystal_docs.project_name" content="Decorator">
 
 
 
 <link href="../css/style.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="../js/doc.js"></script>
 
-  <meta name="repository-name" content="decorator">
-  <title>Decorator::Base - decorator main</title>
+  <meta name="repository-name" content="Decorator">
+  <title>Decorator::Base - Decorator v1.0.0</title>
   <script type="text/javascript">
     CrystalDocs.base_path = "../";
   </script>
@@ -34,12 +34,12 @@
     <div class="project-summary">
       <h1 class="project-name">
         <a href="../index.html">
-          decorator
+          Decorator
         </a>
       </h1>
 
       <span class="project-version">
-        main
+        v1.0.0
       </span>
     </div>
   </div>
@@ -51,12 +51,12 @@
   <div class="types-list">
     <ul>
   
-  <li class="parent open current" data-id="decorator/Decorator" data-name="decorator">
+  <li class="parent open current" data-id="Decorator/Decorator" data-name="decorator">
       <a href="../Decorator.html">Decorator</a>
       
         <ul>
   
-  <li class=" current" data-id="decorator/Decorator/Base" data-name="decorator::base">
+  <li class=" current" data-id="Decorator/Decorator/Base" data-name="decorator::base">
       <a href="../Decorator/Base.html">Base</a>
       
     </li>
@@ -75,12 +75,12 @@
 <div class="main-content">
 <h1 class="type-name">
 
-  <span class="kind">class</span> Decorator::Base
+  <span class="kind">abstract struct</span> Decorator::Base
 
 </h1>
 
 
-  <ul class="superclass-hierarchy"><li class="superclass"><a href="../Decorator/Base.html">Decorator::Base</a></li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../Decorator/Base.html">Decorator::Base</a></li><li class="superclass">Struct</li><li class="superclass">Value</li><li class="superclass">Object</li></ul>
 
 
 
@@ -108,7 +108,7 @@
   </h2>
   
     
-      <a href="https://github.com/stephendolan/decorator/blob/02b63c7d910b1a7670c87c928a9b8355ae516775/src/decorator/base.cr#L1" target="_blank">
+      <a href="https://github.com/stephendolan/decorator/blob/v1.0.0/src/decorator/base.cr#L1" target="_blank">
         decorator/base.cr
       </a>
     
@@ -118,6 +118,23 @@
 
 
 
+
+  <h2>
+    <a id="constructors" class="anchor" href="#constructors">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Constructors
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#new-class-method" class="signature"><strong>.new</strong></a>
+        
+      </li>
+    
+  </ul>
 
 
 
@@ -168,8 +185,44 @@
 
 
   
+    
+
+
+    
+
+
+    
+
+
+  
 </div>
 
+
+  <h2>
+    <a id="constructor-detail" class="anchor" href="#constructor-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Constructor Detail
+  </h2>
+  
+    <div class="entry-detail" id="new-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>
+
+        <a class="method-permalink" href="#new-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/stephendolan/decorator/blob/v1.0.0/src/decorator/base.cr#L1" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
 
 
 
@@ -200,13 +253,13 @@
 
 <p>Currently, you can only supply <strong>one</strong> <code><a href="../Decorator/Base.html#decorates(type_declaration)-macro">decorates</a></code> statement per decorator that inherits from <code><a href="../Decorator/Base.html">Decorator::Base</a></code>.</p>
 
-<p>Given a decorator class like this:</p>
+<p>Given a decorator struct like this:</p>
 
-<pre><code class="language-crystal"><span class="k">class</span> <span class="t">TimeDecorator</span> <span class="o">&lt;</span> <span class="t">Decorator</span><span class="t">::</span><span class="t">Base</span>
+<pre><code class="language-crystal"><span class="k">struct</span> <span class="t">TimeDecorator</span> <span class="o">&lt;</span> <span class="t">Decorator</span><span class="t">::</span><span class="t">Base</span>
   decorates time : <span class="t">Time</span>
 <span class="k">end</span></code></pre>
 
-<p>The following items are made available to the <code>TimeDecorator</code> class:</p>
+<p>The following items are made available to the <code>TimeDecorator</code> struct:</p>
 
 <ul><li>An <code>initialize(@time : Time)</code> method</li><li>A <code>getter</code> (or <code>getter?</code> for <code>Bool</code> types) for <code>@time</code></li></ul>
 
@@ -217,7 +270,7 @@ https://github.com/luckyframework/lucky/blob/master/src/lucky/assignable.cr</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/stephendolan/decorator/blob/02b63c7d910b1a7670c87c928a9b8355ae516775/src/decorator/base.cr#L26" target="_blank">View source</a>]
+          [<a href="https://github.com/stephendolan/decorator/blob/v1.0.0/src/decorator/base.cr#L26" target="_blank">View source</a>]
         
       </div>
     </div>

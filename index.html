@@ -4,16 +4,16 @@
   <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="generator" content="Crystal Docs 0.36.1">
-<meta name="crystal_docs.project_version" content="main">
-<meta name="crystal_docs.project_name" content="decorator">
+<meta name="crystal_docs.project_version" content="v1.0.0">
+<meta name="crystal_docs.project_name" content="Decorator">
 
 
 
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="js/doc.js"></script>
 
-  <meta name="repository-name" content="decorator">
-  <title>decorator main</title>
+  <meta name="repository-name" content="Decorator">
+  <title>Decorator v1.0.0</title>
   <script type="text/javascript">
   CrystalDocs.base_path = "";
   </script>
@@ -34,12 +34,12 @@
     <div class="project-summary">
       <h1 class="project-name">
         <a href="index.html">
-          decorator
+          Decorator
         </a>
       </h1>
 
       <span class="project-version">
-        main
+        v1.0.0
       </span>
     </div>
   </div>
@@ -51,12 +51,12 @@
   <div class="types-list">
     <ul>
   
-  <li class="parent " data-id="decorator/Decorator" data-name="decorator">
+  <li class="parent " data-id="Decorator/Decorator" data-name="decorator">
       <a href="Decorator.html">Decorator</a>
       
         <ul>
   
-  <li class=" " data-id="decorator/Decorator/Base" data-name="decorator::base">
+  <li class=" " data-id="Decorator/Decorator/Base" data-name="decorator::base">
       <a href="Decorator/Base.html">Base</a>
       
     </li>
@@ -105,11 +105,9 @@
   </svg>
 </a>🎬 Screencast</h2>
 
-<p>&lt;div style="width:50%">
-  &lt;a href="https://luckycasts.com/videos/decorator-shard">&lt;img src="https://i.imgur.com/1gs4z0c.jpg" title="Decorating Lucky Apps with the Decorator Shard" />&lt;/a>
-&lt;/div></p>
+<p>&lt;a href="https://luckycasts.com/videos/decorator-shard">&lt;img src="https://i.imgur.com/1gs4z0c.jpg" title="Decorating Lucky Apps with the Decorator Shard" width="500" />&lt;/a></p>
 
-<p><a href="https://luckycasts.com/videos/decorator-shard">Watch Screencast</a></p>
+<p><a href="https://luckycasts.com/videos/decorator-shard">Watch a LuckyCast on the Decorator shard</a></p>
 
 <h2><a id="usage" class="anchor" href="#usage">
   <svg class="octicon-link" aria-hidden="true">
@@ -121,9 +119,9 @@
 
 <pre><code class="language-crystal"><span class="k">require</span> <span class="s">&quot;decorator&quot;</span></code></pre>
 
-<p>Create a decorator that inherits from Decorator::Base, and tell the decorator what it <code>decorates</code> to decorate:</p>
+<p>Create a decorator <code>Struct</code> that inherits from <code><a href="Decorator/Base.html">Decorator::Base</a></code>, and define what it <code>decorates</code>:</p>
 
-<pre><code class="language-crystal"><span class="k">class</span> <span class="t">TimeDecorator</span> <span class="o">&lt;</span> <span class="t">Decorator</span><span class="t">::</span><span class="t">Base</span>
+<pre><code class="language-crystal"><span class="k">struct</span> <span class="t">TimeDecorator</span> <span class="o">&lt;</span> <span class="t">Decorator</span><span class="t">::</span><span class="t">Base</span>
   decorates time : <span class="t">Time</span>
 
   <span class="c"># Return a pretty version of a date and weekday in the format:</span>
@@ -139,7 +137,7 @@
   <span class="k">end</span>
 <span class="k">end</span></code></pre>
 
-<p>In the above example, <code><a href="Decorator.html">Decorator</a></code> adds the following to the <code>TimeDecorator</code> class for you:</p>
+<p>In the above example, <code><a href="Decorator.html">Decorator</a></code> adds the following to the <code>TimeDecorator</code> struct for you:</p>
 
 <ul><li>An <code>initialize(@time : Time)</code> method</li><li>A <code>getter</code> (or <code>getter?</code> for <code>Bool</code> types) for <code>@time</code></li></ul>
 
