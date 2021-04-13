@@ -14,7 +14,7 @@ class User
   end
 end
 
-class UserDecorator < Decorator::Base
+struct UserDecorator < Decorator::Base
   decorates user : User
 
   def full_name
