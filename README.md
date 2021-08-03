@@ -60,8 +60,7 @@ In the above example, `Decorator` adds the following to the `TimeDecorator` stru
 Now, you're able to transform `Time` objects using the decorator:
 
 ```crystal
-current_time = Time.utc
-decorated_time = TimeDecorator.new(current_time)
+decorated_time = TimeDecorator.new(Time.utc)
 
 puts decorated_time.date_with_weekday
 # => "Monday, November 2, 2020"
