@@ -57,6 +57,19 @@ In the above example, `Decorator` adds the following to the `TimeDecorator` stru
 - An `initialize(@time : Time)` method
 - A `getter` (or `getter?` for `Bool` types) for `@time`
 
+Now, you're able to transform `Time` objects using the decorator:
+
+```crystal
+current_time = Time.utc
+decorated_time = TimeDecorator.new(current_time)
+
+puts decorated_time.date_with_weekday
+# => "Monday, November 2, 2020"
+
+puts decorated_time.date
+# => "November 2, 2020"
+```
+
 ## Contributing
 
 1. [Fork it](https://github.com/stephendolan/decorator/fork)
