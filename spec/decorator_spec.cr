@@ -27,8 +27,12 @@ describe Decorator do
     UserDecorator.new(User.new).website_url.should eq "https://luckycasts.com"
   end
 
-  it "successfully decorates objects" do
+  it "successfully decorates an object" do
     UserDecorator.new(User.new).full_name.should eq "Lucky Casts"
+  end
+
+  it "successfully decorates a collection of objects" do
+    UserDecorator.collection([User.new]).first.full_name.should eq "Lucky Casts"
   end
 
   it "provides a getter for the decorated object" do

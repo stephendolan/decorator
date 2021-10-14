@@ -1,12 +1,14 @@
 abstract struct Decorator::Base
-  # Keep track of how many `decorates` statements have been provided so that we can limit to 1.
+  # Keep track of how many `decorates` statements have been provided so that we
+  # can limit to 1.
   macro inherited
     DECORATOR_ASSIGNS = [] of Nil
   end
 
   # The `decorates` macro defines all of the Decorator core logic.
   #
-  # Currently, you can only supply **one** `decorates` statement per decorator that inherits from `Decorator::Base`.
+  # Currently, you can only supply **one** `decorates` statement per decorator
+  # that inherits from `Decorator::Base`.
   #
   # Given a decorator struct like this:
   #
@@ -19,6 +21,7 @@ abstract struct Decorator::Base
   # The following items are made available to the `TimeDecorator` struct:
   #
   # - An `initialize(@time : Time)` method
+  # - A `collection(objects : Array(Time))` class method
   # - A `getter` (or `getter?` for `Bool` types) for `@time`
   #
   # Implementation is heavily inspired by the [Lucky::Assignable] module:
@@ -51,6 +54,10 @@ abstract struct Decorator::Base
     forward_missing_to @{{ type_declaration.var }}
 
     def initialize(@{{ type_declaration.var }} : {{ type_declaration.type }})
+    end
+
+    def self.collection(objects : Array({{ type_declaration.type }}))
+      objects.map { |object| new(object) }
     end
 
     {% DECORATOR_ASSIGNS << type_declaration %}
