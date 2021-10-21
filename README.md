@@ -32,7 +32,8 @@ Require the shard:
 require "decorator"
 ```
 
-Create a decorator `Struct` that inherits from `Decorator::Base`, and define what it `decorates`:
+Create a decorator `Struct` that inherits from `Decorator::Base`, and define
+what it `decorates`:
 
 ```crystal
 struct TimeDecorator < Decorator::Base
@@ -52,9 +53,11 @@ struct TimeDecorator < Decorator::Base
 end
 ```
 
-In the above example, `Decorator` adds the following to the `TimeDecorator` struct for you:
+In the above example, `Decorator` adds the following to the `TimeDecorator`
+struct for you:
 
 - An `initialize(@time : Time)` method
+- A `collection(objects : Array(Time))` class method
 - A `getter` (or `getter?` for `Bool` types) for `@time`
 
 Now, you're able to transform `Time` objects using the decorator:
@@ -67,6 +70,23 @@ puts decorated_time.date_with_weekday
 
 puts decorated_time.date
 # => "November 2, 2020"
+```
+
+Or even a collection of time objects with the `collection` method:
+
+```crystal
+decorated_times = TimeDecorator.collection([
+  Time.utc - 1.year,
+  Time.utc,
+  Time.utc + 1.year
+])
+
+puts decorated_times[0].date_with_weekday
+# => "Saturday, November 2, 2019"
+puts decorated_times[1].date_with_weekday
+# => "Monday, November 2, 2020"
+puts decorated_times[2].date_with_weekday
+# => "Tuesday, November 2, 2021"
 ```
 
 ## Contributing
