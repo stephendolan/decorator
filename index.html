@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Crystal Docs 0.36.1">
-<meta name="crystal_docs.project_version" content="v1.0.0">
+<meta name="generator" content="Crystal Docs 1.1.1">
+<meta name="crystal_docs.project_version" content="v1.1.0">
 <meta name="crystal_docs.project_name" content="Decorator">
 
 
@@ -13,7 +13,7 @@
 <script type="text/javascript" src="js/doc.js"></script>
 
   <meta name="repository-name" content="Decorator">
-  <title>Decorator v1.0.0</title>
+  <title>Decorator v1.1.0</title>
   <script type="text/javascript">
   CrystalDocs.base_path = "";
   </script>
@@ -39,7 +39,7 @@
       </h1>
 
       <span class="project-version">
-        v1.0.0
+        v1.1.0
       </span>
     </div>
   </div>
@@ -73,54 +73,40 @@
 
 
 <div class="main-content">
-<h1><a id="decorator" class="anchor" href="#decorator">
-  <svg class="octicon-link" aria-hidden="true">
+<h1><a id="decorator" class="anchor" href="#decorator">  <svg class="octicon-link" aria-hidden="true">
     <use href="#octicon-link"/>
   </svg>
 </a>Decorator</h1>
-
-<p><img src="https://github.com/stephendolan/decorator/workflows/Shard%20CI/badge.svg" alt="Shard CI"/>
-<a href="https://stephendolan.github.io/decorator"><img src="https://img.shields.io/website?down_color=red&down_message=Offline&label=API%20Documentation&up_message=Online&url=https%3A%2F%2Fstephendolan.github.io%2Fdecorator%2F" alt="API Documentation Website"/></a>
-<a href="https://github.com/stephendolan/decorator/releases"><img src="https://img.shields.io/github/release/stephendolan/decorator.svg?label=Release" alt="GitHub release"/></a></p>
-
+<p><img src="https://github.com/stephendolan/decorator/workflows/Shard%20CI/badge.svg" alt="Shard CI" />
+<a href="https://stephendolan.github.io/decorator"><img src="https://img.shields.io/website?down_color=red&amp;down_message=Offline&amp;label=API%20Documentation&amp;up_message=Online&amp;url=https://stephendolan.github.io/decorator/" alt="API Documentation Website" /></a>
+<a href="https://github.com/stephendolan/decorator/releases"><img src="https://img.shields.io/github/release/stephendolan/decorator.svg?label=Release" alt="GitHub release" /></a></p>
 <p>A simple <a href="https://crystal-lang.org">Crystal</a> shard for decorating objects.</p>
-
 <h2><a id="installation" class="anchor" href="#installation">
   <svg class="octicon-link" aria-hidden="true">
     <use href="#octicon-link"/>
   </svg>
 </a>Installation</h2>
-
 <p>Add the dependency to your <code>shard.yml</code>:</p>
-
 <pre><code class="language-yaml">dependencies:
   decorator:
     github: stephendolan/decorator</code></pre>
-
 <p>Run <code>shards install</code></p>
-
 <h2><a id="screencast" class="anchor" href="#screencast">
   <svg class="octicon-link" aria-hidden="true">
     <use href="#octicon-link"/>
   </svg>
 </a>🎬 Screencast</h2>
-
-<p>&lt;a href="https://luckycasts.com/videos/decorator-shard">&lt;img src="https://i.imgur.com/1gs4z0c.jpg" title="Decorating Lucky Apps with the Decorator Shard" width="500" />&lt;/a></p>
-
+<p><a href="https://luckycasts.com/videos/decorator-shard"><img src="https://i.imgur.com/1gs4z0c.jpg" title="Decorating Lucky Apps with the Decorator Shard" width="500" /></a></p>
 <p><a href="https://luckycasts.com/videos/decorator-shard">Watch a LuckyCast on the Decorator shard</a></p>
-
 <h2><a id="usage" class="anchor" href="#usage">
   <svg class="octicon-link" aria-hidden="true">
     <use href="#octicon-link"/>
   </svg>
 </a>Usage</h2>
-
 <p>Require the shard:</p>
-
 <pre><code class="language-crystal"><span class="k">require</span> <span class="s">&quot;decorator&quot;</span></code></pre>
-
-<p>Create a decorator <code>Struct</code> that inherits from <code><a href="Decorator/Base.html">Decorator::Base</a></code>, and define what it <code>decorates</code>:</p>
-
+<p>Create a decorator <code>Struct</code> that inherits from <code><a href="Decorator/Base.html">Decorator::Base</a></code>, and define
+what it <code>decorates</code>:</p>
 <pre><code class="language-crystal"><span class="k">struct</span> <span class="t">TimeDecorator</span> <span class="o">&lt;</span> <span class="t">Decorator</span><span class="t">::</span><span class="t">Base</span>
   decorates time : <span class="t">Time</span>
 
@@ -136,34 +122,62 @@
     time.to_s(<span class="s">&quot;%B %-d, %Y&quot;</span>)
   <span class="k">end</span>
 <span class="k">end</span></code></pre>
+<p>In the above example, <code><a href="Decorator.html">Decorator</a></code> adds the following to the <code>TimeDecorator</code>
+struct for you:</p>
+<ul>
+<li>An <code>initialize(@time : Time)</code> method</li>
+<li>A <code>collection(objects : Array(Time))</code> class method</li>
+<li>A <code>getter</code> (or <code>getter?</code> for <code>Bool</code> types) for <code>@time</code></li>
+</ul>
+<p>Now, you're able to transform <code>Time</code> objects using the decorator:</p>
+<pre><code class="language-crystal">decorated_time <span class="o">=</span> <span class="t">TimeDecorator</span>.<span class="k">new</span>(<span class="t">Time</span>.utc)
 
-<p>In the above example, <code><a href="Decorator.html">Decorator</a></code> adds the following to the <code>TimeDecorator</code> struct for you:</p>
+puts decorated_time.date_with_weekday
+<span class="c"># =&gt; &quot;Monday, November 2, 2020&quot;</span>
 
-<ul><li>An <code>initialize(@time : Time)</code> method</li><li>A <code>getter</code> (or <code>getter?</code> for <code>Bool</code> types) for <code>@time</code></li></ul>
+puts decorated_time.date
+<span class="c"># =&gt; &quot;November 2, 2020&quot;</span></code></pre>
+<p>Or even a collection of time objects with the <code>collection</code> method:</p>
+<pre><code class="language-crystal">decorated_times <span class="o">=</span> <span class="t">TimeDecorator</span>.collection([
+  <span class="t">Time</span>.utc <span class="o">-</span> <span class="n">1</span>.year,
+  <span class="t">Time</span>.utc,
+  <span class="t">Time</span>.utc <span class="o">+</span> <span class="n">1</span>.year
+])
 
+puts decorated_times[<span class="n">0</span>].date_with_weekday
+<span class="c"># =&gt; &quot;Saturday, November 2, 2019&quot;</span>
+puts decorated_times[<span class="n">1</span>].date_with_weekday
+<span class="c"># =&gt; &quot;Monday, November 2, 2020&quot;</span>
+puts decorated_times[<span class="n">2</span>].date_with_weekday
+<span class="c"># =&gt; &quot;Tuesday, November 2, 2021&quot;</span></code></pre>
 <h2><a id="contributing" class="anchor" href="#contributing">
   <svg class="octicon-link" aria-hidden="true">
     <use href="#octicon-link"/>
   </svg>
 </a>Contributing</h2>
-
-<ol><li><a href="https://github.com/stephendolan/decorator/fork">Fork it</a></li><li>Create your feature branch (<code>git checkout -b my-new-feature</code>)</li><li>Commit your changes (<code>git commit -am 'Add some feature'</code>)</li><li>Push to the branch (<code>git push origin my-new-feature</code>)</li><li>Create a new Pull Request</li></ol>
-
+<ol>
+<li><a href="https://github.com/stephendolan/decorator/fork">Fork it</a></li>
+<li>Create your feature branch (<code>git checkout -b my-new-feature</code>)</li>
+<li>Commit your changes (<code>git commit -am 'Add some feature'</code>)</li>
+<li>Push to the branch (<code>git push origin my-new-feature</code>)</li>
+<li>Create a new Pull Request</li>
+</ol>
 <h2><a id="contributors" class="anchor" href="#contributors">
   <svg class="octicon-link" aria-hidden="true">
     <use href="#octicon-link"/>
   </svg>
 </a>Contributors</h2>
-
-<ul><li><a href="https://github.com/stephendolan">Stephen Dolan</a> - creator and maintainer</li></ul>
-
+<ul>
+<li><a href="https://github.com/stephendolan">Stephen Dolan</a> - creator and maintainer</li>
+</ul>
 <h2><a id="inspiration" class="anchor" href="#inspiration">
   <svg class="octicon-link" aria-hidden="true">
     <use href="#octicon-link"/>
   </svg>
 </a>Inspiration</h2>
-
-<ul><li>The <code>decorates</code> syntax and code mimics the <a href="https://github.com/luckyframework/lucky/blob/master/src/lucky/assignable.cr">Lucky::Assignable Module</a> <code>needs</code> implementation created by the <a href="https://luckyframework.org">Lucky</a> team.</li></ul>
+<ul>
+<li>The <code>decorates</code> syntax and code mimics the <a href="https://github.com/luckyframework/lucky/blob/master/src/lucky/assignable.cr">Lucky::Assignable Module</a> <code>needs</code> implementation created by the <a href="https://luckyframework.org">Lucky</a> team.</li>
+</ul>
 </div>
 </body>
 </html>

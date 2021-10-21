@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Crystal Docs 0.36.1">
-<meta name="crystal_docs.project_version" content="v1.0.0">
+<meta name="generator" content="Crystal Docs 1.1.1">
+<meta name="crystal_docs.project_version" content="v1.1.0">
 <meta name="crystal_docs.project_name" content="Decorator">
 
 
@@ -13,7 +13,7 @@
 <script type="text/javascript" src="../js/doc.js"></script>
 
   <meta name="repository-name" content="Decorator">
-  <title>Decorator::Base - Decorator v1.0.0</title>
+  <title>Decorator::Base - Decorator v1.1.0</title>
   <script type="text/javascript">
     CrystalDocs.base_path = "../";
   </script>
@@ -39,7 +39,7 @@
       </h1>
 
       <span class="project-version">
-        v1.0.0
+        v1.1.0
       </span>
     </div>
   </div>
@@ -108,7 +108,7 @@
   </h2>
   
     
-      <a href="https://github.com/stephendolan/decorator/blob/v1.0.0/src/decorator/base.cr#L1" target="_blank">
+      <a href="https://github.com/stephendolan/decorator/blob/v1.1.0/src/decorator/base.cr#L1" target="_blank">
         decorator/base.cr
       </a>
     
@@ -153,9 +153,9 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#decorates(type_declaration)-macro" class="signature"><strong>decorates</strong>(type_declaration)</a>
+        <a href="#decorates%28type_declaration%29-macro" class="signature"><strong>decorates</strong>(type_declaration)</a>
         
-          <div class="summary"><p>The <code><a href="../Decorator/Base.html#decorates(type_declaration)-macro">decorates</a></code> macro defines all of the Decorator core logic.</p></div>
+          <div class="summary"><p>The <code><a href="../Decorator/Base.html#decorates%28type_declaration%29-macro">decorates</a></code> macro defines all of the Decorator core logic.</p></div>
         
       </li>
     
@@ -218,7 +218,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/stephendolan/decorator/blob/v1.0.0/src/decorator/base.cr#L1" target="_blank">View source</a>]
+          [<a href="https://github.com/stephendolan/decorator/blob/v1.1.0/src/decorator/base.cr#L1" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -244,25 +244,24 @@
         
         macro <strong>decorates</strong>(type_declaration)
 
-        <a class="method-permalink" href="#decorates(type_declaration)-macro">#</a>
+        <a class="method-permalink" href="#decorates%28type_declaration%29-macro">#</a>
       </div>
       
         <div class="doc">
           
-          <p>The <code><a href="../Decorator/Base.html#decorates(type_declaration)-macro">decorates</a></code> macro defines all of the Decorator core logic.</p>
-
-<p>Currently, you can only supply <strong>one</strong> <code><a href="../Decorator/Base.html#decorates(type_declaration)-macro">decorates</a></code> statement per decorator that inherits from <code><a href="../Decorator/Base.html">Decorator::Base</a></code>.</p>
-
+          <p>The <code><a href="../Decorator/Base.html#decorates%28type_declaration%29-macro">decorates</a></code> macro defines all of the Decorator core logic.</p>
+<p>Currently, you can only supply <strong>one</strong> <code><a href="../Decorator/Base.html#decorates%28type_declaration%29-macro">decorates</a></code> statement per decorator
+that inherits from <code><a href="../Decorator/Base.html">Decorator::Base</a></code>.</p>
 <p>Given a decorator struct like this:</p>
-
 <pre><code class="language-crystal"><span class="k">struct</span> <span class="t">TimeDecorator</span> <span class="o">&lt;</span> <span class="t">Decorator</span><span class="t">::</span><span class="t">Base</span>
   decorates time : <span class="t">Time</span>
 <span class="k">end</span></code></pre>
-
 <p>The following items are made available to the <code>TimeDecorator</code> struct:</p>
-
-<ul><li>An <code>initialize(@time : Time)</code> method</li><li>A <code>getter</code> (or <code>getter?</code> for <code>Bool</code> types) for <code>@time</code></li></ul>
-
+<ul>
+<li>An <code>initialize(@time : Time)</code> method</li>
+<li>A <code>collection(objects : Array(Time))</code> class method</li>
+<li>A <code>getter</code> (or <code>getter?</code> for <code>Bool</code> types) for <code>@time</code></li>
+</ul>
 <p>Implementation is heavily inspired by the [Lucky::Assignable] module:
 https://github.com/luckyframework/lucky/blob/master/src/lucky/assignable.cr</p>
         </div>
@@ -270,7 +269,7 @@ https://github.com/luckyframework/lucky/blob/master/src/lucky/assignable.cr</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/stephendolan/decorator/blob/v1.0.0/src/decorator/base.cr#L26" target="_blank">View source</a>]
+          [<a href="https://github.com/stephendolan/decorator/blob/v1.1.0/src/decorator/base.cr#L29" target="_blank">View source</a>]
         
       </div>
     </div>
