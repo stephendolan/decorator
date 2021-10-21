@@ -75,10 +75,18 @@ puts decorated_time.date
 Or even a collection of time objects with the `collection` method:
 
 ```crystal
-decorated_times = TimeDecorator.collection([Time.utc])
+decorated_times = TimeDecorator.collection([
+  Time.utc - 1.year,
+  Time.utc,
+  Time.utc + 1.year
+])
 
-puts decorated_times.first.date_with_weekday
+puts decorated_times[0].date_with_weekday
+# => "Saturday, November 2, 2019"
+puts decorated_times[1].date_with_weekday
 # => "Monday, November 2, 2020"
+puts decorated_times[2].date_with_weekday
+# => "Tuesday, November 2, 2021"
 ```
 
 ## Contributing
